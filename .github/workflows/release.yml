@@ -1,0 +1,20 @@
+name: Release
+on:
+  release:
+  push:
+    tags:
+      - "**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: olafurpg/setup-scala@v5
+        with:
+          java-version: adopt@1.11
+
+      - name: Github Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
+        run: sbt githubRelease

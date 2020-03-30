@@ -10,16 +10,9 @@ object Common extends AutoPlugin {
 
   override lazy val projectSettings: Seq[Setting[_]] = Seq(
     scalaVersion := "2.13.1",
-    
     resolvers ++= Seq("jitpack" at "https://jitpack.io"),
-    version := {
-      sys.props.get("prod.publish") match {
-        case Some("true") => version.value
-        case _            => "0.1.0-SNAPSHOT"
-      }
-    },
+    version := "0.1.1-SNAPSHOT",
     isSnapshot := !sys.props.get("prod.publish").contains("true"),
-    cancelable in Global := true, // allow ongoing test(or any task) to cancel with ctrl + c and still remain inside sbt
-
+    cancelable in Global := true // allow ongoing test(or any task) to cancel with ctrl + c and still remain inside sbt
   )
 }
