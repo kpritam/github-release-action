@@ -27,7 +27,7 @@ jobs:
 
       - name: Credenitals Helper
         run: |
-          echo 'echo $GITHUB_TOKEN' > ~/.git-askpass
+          echo $GITHUB_TOKEN > ~/.git-askpass
         env:
           GITHUB_TOKEN: $${{ secrets.GITHUB_TOKEN }}
 
