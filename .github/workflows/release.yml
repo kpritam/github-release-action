@@ -25,5 +25,13 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
       #   run: sbt githubRelease
 
+      - name: Credenitals Helper
+        run: |
+          echo 'echo $MY_GIT_TOKEN' > ~/.git-askpass
+        env:
+          GIT_TOKEN: $${{ secrets.GITHUB_TOKEN }}
+
       - name: Docs Publish
         run: sbt ghpagesPushSite
+        env:
+          GIT_ASKPASS: ~/.git-askpass
