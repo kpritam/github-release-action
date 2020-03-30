@@ -16,5 +16,5 @@ jobs:
 
       - name: Github Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: sbt githubRelease
