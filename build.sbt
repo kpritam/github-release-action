@@ -23,7 +23,7 @@ lazy val docs = project
   .disablePlugins(SbtGithubReleasePlugin)
   .settings(
     ghpagesBranch := "gh-pages",
-    docsRepo := "git@github.com:kpritam/github-release-action",
+    docsRepo := "git@github.com:kpritam/kpritam.github.io",
     docsParentDir := "github-release-action",
     gitCurrentRepo := "https://github.com/kpritam/github-release-action"
   )
