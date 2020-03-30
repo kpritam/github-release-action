@@ -29,7 +29,7 @@ jobs:
         run: |
           echo $GITHUB_TOKEN > ~/.git-askpass
         env:
-          GITHUB_TOKEN: $${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: $${{ secrets.GITHUB_RELEASE }}
 
       - name: Docs Publish
         run: sbt ghpagesPushSite
