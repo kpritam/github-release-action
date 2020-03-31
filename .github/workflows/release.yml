@@ -35,4 +35,4 @@ jobs:
           
         env:
           GITHUB_TOKEN: $${{ secrets.GITHUB_RELEASE }}
-          GIT_ASKPASS: "$HOME/.git-askpass"
+          GIT_ASKPASS: $HOME/.git-askpass
