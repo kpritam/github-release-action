@@ -24,10 +24,12 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
       #   run: sbt githubRelease
-      
-      - name: Docs Publish
-        run: |
-          echo "oauth=$GITHUB_TOKEN" > ~/.github
-          sbt ghpagesPushSite
+
+      - name: Configure Git Credentials
+        run: echo "oauth=$GITHUB_TOKEN" > ~/.github
         env:
           GITHUB_TOKEN: $${{ secrets.GITHUB_RELEASE }}
+
+      - name: Docs Publish
+        run: sbt ghpagesPushSite
+        
