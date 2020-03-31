@@ -27,13 +27,14 @@ jobs:
 
       - name: Docs Publish
         run: |
-          echo 'echo $GITHUB_RELEASE' > /tmp/askpass
-          chmod +x /tmp/askpass
+          git --version
+          echo 'echo $GITHUB_RELEASE' > $HOME/git-askpass
+          chmod +x $HOME/git-askpass
           git config --global user.email "actions@github.com"
           git config --global user.name "Github Action"
-          ls -la /tmp/
+          ls -la $HOME
           sbt ghpagesPushSite
           
         env:
-          GITHUB_RELEASE: $${{ secrets.GITHUB_RELEASE }}
-          GIT_ASKPASS: /tmp/askpass
+          GITHUB_RELEASE: ${{ secrets.GITHUB_RELEASE }}
+          GIT_ASKPASS: $HOME/git-askpass
