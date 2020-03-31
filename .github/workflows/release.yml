@@ -33,5 +33,5 @@ jobs:
           sbt ghpagesPushSite
           
         env:
-          GITHUB_RELEASE: ${{ secrets.GITHUB_RELEASE }}
+          GITHUB_RELEASE: ${{ secrets.GITHUB_TOKEN }}
           GIT_ASKPASS: /tmp/.git-askpass
