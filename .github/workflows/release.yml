@@ -24,15 +24,10 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
       #   run: sbt githubRelease
-
-      - name: Credenitals Helper
-        run: |
-          echo $GITHUB_TOKEN > ~/.git-askpass
-        env:
-          GITHUB_TOKEN: $${{ secrets.GITHUB_RELEASE }}
-
+      
       - name: Docs Publish
-        run: sbt ghpagesPushSite
+        run: |
+          echo "oauth=$GITHUB_TOKEN" > ~/.github
+          sbt ghpagesPushSite
         env:
-          GIT_ASKPASS: ~/.git-askpass
           GITHUB_TOKEN: $${{ secrets.GITHUB_RELEASE }}
