@@ -1,0 +1,16 @@
+name: Coursier
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test
+      run: |
+        curl -fLo cs https://git.io/coursier-cli-linux && chmod +x cs
+        ./cs launch --channel https://raw.githubusercontent.com/tmtsoftware/apps/master/apps.json backend-testkit-services:4573e3fe60 -- start -s Gateway
