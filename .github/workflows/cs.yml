@@ -12,3 +12,5 @@ jobs:
     steps:
     - run: sudo apt-get install redis-server
     - run: redis-server -v
+    - run: command -v redis-server
+    - run: command -v redis-server1
