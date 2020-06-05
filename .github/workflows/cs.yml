@@ -21,6 +21,7 @@ jobs:
           make
           ls
           src/redis-server -v
+          sudo cp src/redis-server /usr/local/bin
           echo "::add-path::$(pwd)/src/"
 
       - run: echo $PATH
