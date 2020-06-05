@@ -20,7 +20,7 @@ jobs:
           cd redis-6.0.4
           make
           echo "::add-path::$(pwd)/src/redis-server"
+          redis-server -v
 
       - run: echo $PATH
-      - run: redis-server -v
       - run: sudo sbt docs/run
