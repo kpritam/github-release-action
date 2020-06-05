@@ -10,10 +10,12 @@ object Redis extends App {
     Runtime.getRuntime.exec(Array("bash", "command", "-v", cmd)).waitFor() == 0
   }
   def isInstalled3(cmd: String): Try[Boolean] = Try { Runtime.getRuntime.exec(Array("sh", "command", "-v", cmd)).waitFor() == 0 }
+  def isInstalled4(cmd: String): Try[Boolean] = Try { Runtime.getRuntime.exec(Array("sh", "hash", cmd)).waitFor() == 0 }
 
   println(isInstalled(redisServer))
   println(isInstalled0(redisServer))
   println(isInstalled1(redisServer))
   println(isInstalled2(redisServer))
   println(isInstalled3(redisServer))
+  println(isInstalled4(redisServer))
 }

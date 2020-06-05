@@ -21,7 +21,7 @@ jobs:
           make
           ls
           src/redis-server -v
-          echo "::add-path::$(pwd)/src/redis-server"
+          echo "::add-path::$(pwd)/src/"
 
       - run: echo $PATH
       - run: sudo sbt docs/run
