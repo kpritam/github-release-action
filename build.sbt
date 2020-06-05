@@ -12,6 +12,7 @@ lazy val `github-release-action` = project
   .in(file("."))
   .enablePlugins(SbtGithubReleasePlugin)
   .settings(
+    scalaVersion := "2.13.2",
     ghreleaseRepoOrg := "kpritam",
     ghreleaseRepoName := "github-release-action",
     ghreleaseAssets := Seq()

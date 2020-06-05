@@ -1,38 +1,38 @@
-name: Release
-
-on:
-  push:
-    branches:
-      - master
+# name: Release
 
 # on:
-#   release:
 #   push:
-#     tags:
-#       - "**"
+#     branches:
+#       - master
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: olafurpg/setup-scala@v5
-        with:
-          java-version: adopt@1.11
+# # on:
+# #   release:
+# #   push:
+# #     tags:
+# #       - "**"
 
-      # - name: Github Release
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
-      #   run: sbt githubRelease
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: olafurpg/setup-scala@v5
+#         with:
+#           java-version: adopt@1.11
 
-      - name: Docs Publish
-        run: |
-          echo 'echo $GITHUB_RELEASE' > /tmp/.git-askpass
-          chmod +x /tmp/.git-askpass
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Github Action"
-          sbt ghpagesPushSite
-          
-        env:
-          GITHUB_RELEASE: ${{ secrets.GITHUB_RELEASE }}
-          GIT_ASKPASS: /tmp/.git-askpass
+#       # - name: Github Release
+#       #   env:
+#       #     GITHUB_TOKEN: ${{ secrets.GITHUB_RELEASE }}
+#       #   run: sbt githubRelease
+
+#       - name: Docs Publish
+#         run: |
+#           echo 'echo $GITHUB_RELEASE' > /tmp/.git-askpass
+#           chmod +x /tmp/.git-askpass
+#           git config --local user.email "actions@github.com"
+#           git config --local user.name "Github Action"
+#           sbt ghpagesPushSite
+
+#         env:
+#           GITHUB_RELEASE: ${{ secrets.GITHUB_RELEASE }}
+#           GIT_ASKPASS: /tmp/.git-askpass
