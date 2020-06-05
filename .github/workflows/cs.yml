@@ -13,4 +13,5 @@ jobs:
       - uses: olafurpg/setup-scala@v7
         with:
           java-version: adopt@1.11
-      - run: sudo sbt docs/run
+      - run: sudo apt-get install redis
+      - run: sbt docs/run
