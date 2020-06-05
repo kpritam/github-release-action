@@ -19,8 +19,9 @@ jobs:
           tar xzf redis-6.0.4.tar.gz
           cd redis-6.0.4
           make
+          ls
+          src/redis-server -v
           echo "::add-path::$(pwd)/src/redis-server"
-          redis-server -v
 
       - run: echo $PATH
       - run: sudo sbt docs/run
