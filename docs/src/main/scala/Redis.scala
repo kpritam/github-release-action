@@ -20,4 +20,12 @@ object Redis extends App {
   println(isInstalled3(redisServer))
   println(isInstalled4(redisServer))
   println(isInstalled5(redisServer))
+
+  println(isInstalled("ls"))
+  println(isInstalled0("ls"))
+  println(isInstalled1("ls"))
+  println(isInstalled2("ls"))
+  println(isInstalled3("ls"))
+  println(isInstalled4("ls"))
+  println(isInstalled5("ls"))
 }

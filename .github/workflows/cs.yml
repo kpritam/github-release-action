@@ -14,15 +14,15 @@ jobs:
         with:
           java-version: adopt@1.11
 
-      - run: |
-          wget http://download.redis.io/releases/redis-6.0.4.tar.gz
-          tar xzf redis-6.0.4.tar.gz
-          cd redis-6.0.4
-          make
-          ls
-          src/redis-server -v
-          sudo cp src/redis-server /usr/local/bin
-          echo "::add-path::$(pwd)/src/"
+      # - run: |
+      #     wget http://download.redis.io/releases/redis-6.0.4.tar.gz
+      #     tar xzf redis-6.0.4.tar.gz
+      #     cd redis-6.0.4
+      #     make
+      #     ls
+      #     src/redis-server -v
+      #     sudo cp src/redis-server /usr/local/bin
+      #     echo "::add-path::$(pwd)/src/"
 
       - run: echo $PATH
       - run: sudo sbt docs/run
