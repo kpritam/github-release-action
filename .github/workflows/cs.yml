@@ -15,4 +15,7 @@ jobs:
           java-version: adopt@1.11
 
       - run: sudo apt-get install redis-server
+      - run: hash redis-server
+      - run: bash hash redis-server
+      - run: redis-server -v
       - run: sbt docs/run
