@@ -11,6 +11,7 @@ object Redis extends App {
   }
   def isInstalled3(cmd: String): Try[Boolean] = Try { Runtime.getRuntime.exec(Array("sh", "command", "-v", cmd)).waitFor() == 0 }
   def isInstalled4(cmd: String): Try[Boolean] = Try { Runtime.getRuntime.exec(Array("sh", "hash", cmd)).waitFor() == 0 }
+  def isInstalled5(cmd: String): Try[Boolean] = Try { Runtime.getRuntime.exec(Array("hash", cmd)).waitFor() == 0 }
 
   println(isInstalled(redisServer))
   println(isInstalled0(redisServer))
@@ -18,4 +19,5 @@ object Redis extends App {
   println(isInstalled2(redisServer))
   println(isInstalled3(redisServer))
   println(isInstalled4(redisServer))
+  println(isInstalled5(redisServer))
 }
