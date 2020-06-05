@@ -14,7 +14,13 @@ jobs:
         with:
           java-version: adopt@1.11
 
-      - run: sudo apt-get install redis-server
-      - run: hash redis-server
+      - run: |
+        wget http://download.redis.io/releases/redis-6.0.4.tar.gz
+        tar xzf redis-6.0.4.tar.gz
+        cd redis-6.0.4
+        make
+        echo "::add-path::$(pwd)/src/redis-server"
+
+      - run: echo $PATH
       - run: redis-server -v
       - run: sudo sbt docs/run
