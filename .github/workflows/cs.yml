@@ -8,12 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-      with:
-        fetch-depth: '0'
-    - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.17.2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        WITH_V: true
-        DEFAULT_BUMP: none
+      - uses: actions/checkout@master
+
+      - name: Install Kotlin
+        run: |
+          curl -s https://get.sdkman.io | bash
+          sdk install kotlin
+
+      - name: Test Kotlin
+        run: kotlinc -h
