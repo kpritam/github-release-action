@@ -13,6 +13,7 @@ jobs:
       - name: Install Kotlin
         run: |
           curl -s https://get.sdkman.io | bash
+          source "/home/runner/.sdkman/bin/sdkman-init.sh"
           sdk install kotlin
 
       - name: Test Kotlin
