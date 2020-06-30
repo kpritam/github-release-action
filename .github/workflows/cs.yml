@@ -19,4 +19,6 @@ jobs:
           kotlinc -h
 
       - name: Test Kotlin
-        run: kotlinc -h
+        run: |
+          source "/home/runner/.sdkman/bin/sdkman-init.sh"
+          kotlinc -h
