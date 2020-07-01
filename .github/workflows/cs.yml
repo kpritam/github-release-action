@@ -10,13 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Install Kotlin
+      - name: Test
         run: |
-          curl -s https://get.sdkman.io | bash
-          source "/home/runner/.sdkman/bin/sdkman-init.sh"
-          sdk install kotlin
-          sudo ln -s $(which kotlinc) /usr/local/bin/kotlinc
-          kotlinc -h
+          filename="/usr/bin/script.kts"
+          echo $filename
+          cname=${filename%.*}
+          echo $cname
+          cname_lower="$(tr '[:lower:]' '[:upper:]' <<<"${cname:0:1}")${cname:1}"
+          echo $cname_lower
 
-      - name: Test Kotlin
-        run: kotlinc -h
