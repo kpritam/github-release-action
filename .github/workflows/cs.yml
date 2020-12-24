@@ -10,8 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - run: ls -la /usr/lib/postgresql
-
       - name: Install PostgreSQL
         run: |
           echo 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
@@ -21,4 +19,4 @@ jobs:
           /usr/lib/postgresql/13/bin/postgres --version
           echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
 
-      - run: postgres --version
+      - run: postgres
