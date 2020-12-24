@@ -25,14 +25,11 @@ jobs:
       - run: sudo chown -R runner:runner /var/lib/postgresql/13/main/
       - run: sudo chown -R runner:runner /var/lib/postgresql/13/
       - run: ls -la /var/lib/postgresql/13/main
+
       - run: |
-          sudo -u postgres
-          cd /etc/ssl/private
-          ls -la
-      - run: |
-          sudo -u runner
-          cd /etc/ssl/private
-          ls -la
+          sudo ls -la /etc/ssl/private/
+          sudo chown runner:ssl-cert /etc/ssl/private/
+          sudo chown runner:runner /etc/ssl/private/ssl-cert-snakeoil.key
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
