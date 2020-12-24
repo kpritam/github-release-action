@@ -30,6 +30,8 @@ jobs:
           sudo ls -la /etc/ssl/private/
           sudo chown runner:ssl-cert /etc/ssl/private/
           sudo chown runner:runner /etc/ssl/private/ssl-cert-snakeoil.key
+          sudo chmod 0600 /etc/ssl/private/ssl-cert-snakeoil.key          
+          sudo ls -la /etc/ssl/private/
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
