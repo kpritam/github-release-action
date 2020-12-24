@@ -13,4 +13,7 @@ jobs:
       - name: Install PostgreSQL
         run: echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
 
-      - run: postgres -D /usr/local/pgsql/data
+      - name: Start Postgres
+        run: |
+          mkdir -p /usr/local/pgsql/data
+          postgres -D /usr/local/pgsql/data
