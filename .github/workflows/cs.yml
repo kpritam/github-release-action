@@ -10,7 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Test
+      - name: Install PostgreSQL
         run: |
-          ls -la /usr/lib/postgresql/
+          echo 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
+          sudo curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends postgresql-13
+          echo '::add-path::/usr/lib/postgresql/13/bin'
+          postgres --version
 
