@@ -16,4 +16,4 @@ jobs:
       - name: Start Postgres
         run: |
           mkdir -p /tmp/pgsql/data
-          postgres -D /usr/local/pgsql/data
+          postgres -D /tmp/pgsql/data
