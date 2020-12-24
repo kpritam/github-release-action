@@ -18,7 +18,7 @@ jobs:
           mkdir -p /tmp/pdata
           #cp -R /usr/lib/postgresql/13 /tmp/postgres
           #sudo chmod -R 777 /tmp/postgres
-          cp -R /var/lib/postgresql/13/main /tmp/pdata
+          sudo cp -R /var/lib/postgresql/13/main /tmp/pdata
           sudo chmod -R 777 /tmp/pdata
           echo "usr/lib/postgresql/13/bin" >> $GITHUB_PATH
           
