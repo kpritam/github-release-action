@@ -16,6 +16,5 @@ jobs:
       - name: Start Postgres
         run: |
           mkdir -p /tmp/pgsql/data
-          ls -la /usr/lib/postgresql/13/
-          ls -la /usr/lib/postgresql/13/bin/
-          ls -la /usr/lib/postgresql/13/lib
+          ls -la /etc/postgresql
+          ls -la /etc/postgresql/13
