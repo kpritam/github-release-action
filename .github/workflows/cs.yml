@@ -25,7 +25,13 @@ jobs:
       - run: sudo chown -R runner:runner /var/lib/postgresql/13/main/
       - run: sudo chown -R runner:runner /var/lib/postgresql/13/
       - run: ls -la /var/lib/postgresql/13/main
-      - run: sudo chmod 0700 /etc/ssl/private/ssl-cert-snakeoil.key
+      - run: |
+          # > It happened to me and it turned out that I removed erroneously the postgres user from "ssl-cert" group, set it back with
+          sudo gpasswd -a runner ssl-cert
+
+          # Fixed ownership and mode
+          sudo chown runner:ssl-cert  /etc/ssl/private/ssl-cert-snakeoil.key
+          sudo chmod 740 /etc/ssl/private/ssl-cert-snakeoil.key
         
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
