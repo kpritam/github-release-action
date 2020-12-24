@@ -17,6 +17,11 @@ jobs:
           sudo chmod -R 777 /var/lib/postgresql/13/main
           echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
           
+          
+      - run: ls -la /var/lib/postgresql/13/main
+      - run: ls -la /etc/postgresql
+      - run: ls -la /etc/postgresql/13
+        
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
