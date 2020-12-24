@@ -15,7 +15,9 @@ jobs:
       - name: Install PostgreSQL
         run: echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
 
-      - name: Start Postgres
-        run: |
-          ls -la /var/lib/postgresql/13/main
-          postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
+      - run: sudo ls -la /var/lib/postgresql/13/main
+      - run: sudo ls -la /var/lib/pgsql/data
+      - run: sudo postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
+          
+          
+          
