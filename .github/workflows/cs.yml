@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - run: ls -la /usr/lib/postgresql
+
       - name: Install PostgreSQL
         run: |
           echo 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list
