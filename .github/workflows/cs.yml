@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PGDATA: /tmp/pdata
+      PGDATA: /tmp/pdata/main
     steps:
       - uses: actions/checkout@master
 
@@ -20,10 +20,10 @@ jobs:
           #sudo chmod -R 777 /tmp/postgres
           sudo cp -R /var/lib/postgresql/13/main /tmp/pdata
           sudo chmod -R 777 /tmp/pdata
-          echo "usr/lib/postgresql/13/bin" >> $GITHUB_PATH
+          echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
           
 
-      - run: sudo ls -la /tmp/pdata
+      - run: sudo ls -la /tmp/pdata/main
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
