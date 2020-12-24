@@ -12,5 +12,6 @@ jobs:
 
       - name: Test
         run: |
+          psql --version
           postgres --version
 
