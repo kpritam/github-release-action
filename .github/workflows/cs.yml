@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PGDATA: /tmp/postgres/
+      PGDATA: /var/lib/pgsql/data
     steps:
       - uses: actions/checkout@master
 
@@ -19,4 +19,5 @@ jobs:
         run: |
           mkdir -p /tmp/postgres
           cat /etc/postgresql/13/main/postgresql.conf
+          ls -la /var/lib/pgsql/data
           postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
