@@ -19,4 +19,4 @@ jobs:
           ls -la /etc/postgresql/13/main
           cp /etc/postgresql/13/main/postgresql.conf /tmp/pgsql/data
           ls -la /tmp/pgsql/data
-          postgres -D /tmp/pgsql/data
+          postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
