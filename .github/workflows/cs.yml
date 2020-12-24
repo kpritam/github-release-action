@@ -16,7 +16,7 @@ jobs:
         run: echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
 
       - run: sudo ls -la /var/lib/postgresql/13/main
-      - run: sudo postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
+      - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
           
