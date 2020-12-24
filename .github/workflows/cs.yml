@@ -15,23 +15,14 @@ jobs:
       - name: Install PostgreSQL
         run: |
           sudo chmod -R 777 /var/lib/postgresql/13/main
-          echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
-          
-      - run: whoami    
-      - run: ls -la /etc/postgresql/13/main
-      - run: sudo cp -R /etc/postgresql/13/main/* /var/lib/postgresql/13/main
-      - run: sudo chmod -R 0700 /var/lib/postgresql/13/main
-      - run: sudo chown -R runner:runner /var/lib/postgresql/13/main
-      - run: sudo chown -R runner:runner /var/lib/postgresql/13/main/
-      - run: sudo chown -R runner:runner /var/lib/postgresql/13/
-      - run: ls -la /var/lib/postgresql/13/main
-
-      - run: |
-          sudo ls -la /etc/ssl/private/
+          sudo cp -R /etc/postgresql/13/main/* /var/lib/postgresql/13/main
+          sudo chmod -R 0700 /var/lib/postgresql/13/main
+          sudo chown -R runner:runner /var/lib/postgresql/13
           sudo chown runner:ssl-cert /etc/ssl/private/
           sudo chown runner:runner /etc/ssl/private/ssl-cert-snakeoil.key
-          sudo chmod 0600 /etc/ssl/private/ssl-cert-snakeoil.key          
-          sudo ls -la /etc/ssl/private/
+          sudo chmod 0600 /etc/ssl/private/ssl-cert-snakeoil.key
+          echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
+
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
