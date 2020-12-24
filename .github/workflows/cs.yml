@@ -12,7 +12,5 @@ jobs:
 
       - name: Test
         run: |
-          sudo apt-get install postgresql postgresql-contrib -y
-          psql --version
-          postgres --version
+          ls -la /usr/lib/postgresql/
 
