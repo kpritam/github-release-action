@@ -8,14 +8,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PGDATA: /var/lib/postgresql/13/main
+      PGDATA: /tmp/pdata
     steps:
       - uses: actions/checkout@master
 
       - name: Install PostgreSQL
-        run: echo "/usr/lib/postgresql/13/bin" >> $GITHUB_PATH
+        run: |
+          mkdir -p /tmp/postgres
+          mkdir -p /tmp/pdata
+          #cp -R /usr/lib/postgresql/13 /tmp/postgres
+          #sudo chmod -R 777 /tmp/postgres
+          cp -R /var/lib/postgresql/13/main /tmp/pdata
+          sudo chmod -R 777 /tmp/pdata
+          echo "usr/lib/postgresql/13/bin" >> $GITHUB_PATH
+          
 
-      - run: sudo ls -la /var/lib/postgresql/13/main
+      - run: sudo ls -la /tmp/pdata
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
           
