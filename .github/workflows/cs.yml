@@ -19,6 +19,8 @@ jobs:
 
       - name: Init Db
         run: initdb -D /tmp/postgres
+      
+      - run: ls -la /tmp/postgres
     
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
         
