@@ -17,7 +17,5 @@ jobs:
         run: |
           mkdir -p /tmp/pgsql/data
           ls -la /usr/lib/postgresql/13/
-          ls -la /usr/lib/postgresql/13/share/
-          ls -la /usr/lib/postgresql/13/share/postgresql
-          cp /usr/lib/postgresql/13/share/postgresql/postgresql.conf.sample /tmp/pgsql/data/postgresql.conf
-          postgres -D /tmp/pgsql/data
+          ls -la /usr/lib/postgresql/13/bin/
+          ls -la /usr/lib/postgresql/13/lib
