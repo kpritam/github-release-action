@@ -22,6 +22,7 @@ jobs:
       - run: ls -la /etc/postgresql/13/main
       - run: sudo cp /etc/postgresql/13/main/postgresql.conf /var/lib/postgresql/13/main/postgresql.conf
       - run: sudo chmod 777 /var/lib/postgresql/13/main/postgresql.conf
+      - run: cat /var/lib/postgresql/13/main/postgresql.conf
         
       - run: postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
           
