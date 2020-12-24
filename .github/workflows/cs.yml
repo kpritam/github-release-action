@@ -17,5 +17,6 @@ jobs:
         run: |
           mkdir -p /tmp/pgsql/data
           ls -la /etc/postgresql/13/main
-          postgres -D etc/postgresql/13/main
+          # cp /etc/postgresql/13/main/postgres.conf /tmp/pgsql/data
+          postgres -D /etc/postgresql/13/main
       
