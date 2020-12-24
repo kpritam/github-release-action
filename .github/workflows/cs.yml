@@ -17,8 +17,6 @@ jobs:
 
       - name: Start Postgres
         run: |
-          mkdir -p /tmp/pgsql/data
-          ls -la /etc/postgresql/13/main
-          cp /etc/postgresql/13/main/postgresql.conf /tmp/pgsql/data
-          ls -la /tmp/pgsql/data
+          mkdir -p /tmp/postgres
+          cat /etc/postgresql/13/main/postgresql.conf
           postgres --hba_file=pg_hba.conf --unix_socket_directories=/tmp
